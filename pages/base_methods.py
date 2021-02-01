@@ -1,4 +1,4 @@
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -30,6 +30,12 @@ class BaseWebDriver:
             return False
         return True
 
+    def is_element_correct(self, locator_name, locator_value):
+        try:
+            self.browser.find_element(locator_name, locator_value)
+        except NoSuchElementException:
+            return False
+        return True
 
 
 

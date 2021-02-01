@@ -23,6 +23,6 @@ class LoginPage(BaseWebDriver):
         self.is_element_present(*MainPageLocators.MENU_ICON)
 
     def is_user_correct(self):
-        assert self.is_element_present(*MainPageLocators.USER_VALID), "User is invalid or incorrect"
+        assert self.is_element_correct(*MainPageLocators.USER_VALID), "User is invalid or incorrect"
 
 

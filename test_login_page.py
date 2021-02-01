@@ -3,7 +3,7 @@ from pages.locators import LoginPageLocators
 from pages.login_page import LoginPage
 
 
-class TestUserLoginToApp:
+class TestUserInApp:
 
     def test_user_login_to_app(self, browser):
         link = LoginPageLocators.URL
