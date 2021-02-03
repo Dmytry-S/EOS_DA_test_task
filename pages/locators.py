@@ -13,4 +13,4 @@ class LoginPageLocators:
 
 class MainPageLocators:
     MENU_ICON = (By.CSS_SELECTOR, ".icon-sb.account-sb.mat-tooltip-trigger")
-    USER_VALID = (By.CSS_SELECTOR, ".mat-menu-content .email")
+    USER_VALID = (By.CSS_SELECTOR, "cdk-overlay-4 .email")
