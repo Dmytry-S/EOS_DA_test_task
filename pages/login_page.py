@@ -1,3 +1,5 @@
+import time
+
 from .base_methods import BaseWebDriver
 from .locators import LoginPageLocators, MainPageLocators
 
@@ -20,10 +22,12 @@ class LoginPage(BaseWebDriver):
         self.find_and_click_button(*LoginPageLocators.BUTTON_LOGIN)
 
     def is_page_open(self):
-        self.is_element_present(*MainPageLocators.MENU_ICON)
+        self.is_element_present(*MainPageLocators.BUTTON_UPGRADE)
 
-    def is_user_correct(self):
-        # assert self.is_element_correct(*MainPageLocators.USER_VALID), "User is invalid or incorrect"
-        assert self.browser.find_element(*MainPageLocators.USER_VALID), "User is invalid or incorrect"
+    def is_logged_user_correct(self):
+        self.find_and_click_button(*MainPageLocators.MENU_ICON)
+        time.sleep(3)
+        self.is_element_text_correct(*MainPageLocators.USER_VALID, LoginPageLocators.EMAIL_VALUE)
+
 
 

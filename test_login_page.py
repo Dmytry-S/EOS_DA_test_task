@@ -14,4 +14,4 @@ class TestUserInApp:
         page.enter_password()
         page.click_subscribe()
         page.is_page_open()
-        page.is_user_correct()
+        page.is_logged_user_correct()
