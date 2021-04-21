@@ -23,12 +23,8 @@ class BaseWebDriver:
         field.send_keys(text)
 
     def is_element_present(self, locator_name, locator_value, timeout=15):
-        try:
-            WebDriverWait(self.browser, timeout, 3, TimeoutException). \
-                until(EC.presence_of_element_located((locator_name, locator_value)))
-        except TimeoutException:
-            return False
-        return True
+        WebDriverWait(self.browser, timeout, 3, TimeoutException). \
+            until(EC.presence_of_element_located((locator_name, locator_value)))
 
     def is_element_text_correct(self, locator_name, locator_value, valid_element_text):
         element_info = self.browser.find_element(locator_name, locator_value)

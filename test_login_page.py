@@ -8,6 +8,7 @@ class TestUserInApp:
         link = LoginPageLocators.URL
         page = LoginPage(browser, link)
         page.open_url()
+        page.go_to_login_page()
         page.should_be_login_page()
         page.enter_login()
         page.enter_password()

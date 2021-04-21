@@ -1,17 +1,19 @@
 import time
-
 from .base_methods import BaseWebDriver
 from .locators import LoginPageLocators, MainPageLocators
 
 
 class LoginPage(BaseWebDriver):
 
+    def go_to_login_page(self):
+        self.find_and_click_button(*LoginPageLocators.LOGIN_PAGE)
+
     def should_be_login_page(self):
         # Check if there is a login form on the page available
         self.should_be_login_form()
 
     def should_be_login_form(self):
-        assert self.browser.find_element(*LoginPageLocators.LOGIN_FORM), "Should be login form on the page"
+        self.is_element_present(*LoginPageLocators.LOGIN_FORM)
 
     def enter_login(self):
         self.find_and_send_key(*LoginPageLocators.EMAIL_FIELD, LoginPageLocators.EMAIL_VALUE)
