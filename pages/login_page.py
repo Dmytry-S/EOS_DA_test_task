@@ -1,6 +1,7 @@
 import time
 from .base_methods import BaseWebDriver
 from .locators import LoginPageLocators, MainPageLocators
+from .environment import PreprodEnv
 
 
 class LoginPage(BaseWebDriver):
@@ -16,10 +17,10 @@ class LoginPage(BaseWebDriver):
         self.is_element_present(*LoginPageLocators.LOGIN_FORM)
 
     def enter_login(self):
-        self.find_and_send_key(*LoginPageLocators.EMAIL_FIELD, LoginPageLocators.EMAIL_VALUE)
+        self.find_and_send_key(*LoginPageLocators.EMAIL_FIELD, PreprodEnv.EMAIL_VALUE)
 
     def enter_password(self):
-        self.find_and_send_key(*LoginPageLocators.PASSWORD_FIELD, LoginPageLocators.PASSWORD_VALUE)
+        self.find_and_send_key(*LoginPageLocators.PASSWORD_FIELD, PreprodEnv.PASSWORD_VALUE)
 
     def click_subscribe(self):
         self.find_and_click_button(*LoginPageLocators.BUTTON_LOGIN)
@@ -31,8 +32,8 @@ class LoginPage(BaseWebDriver):
     def is_logged_user_correct(self):
         # To make sure that correct user is logged in, compare user's email to email entered into login form
         self.find_and_click_button(*MainPageLocators.MENU_ICON)
-        time.sleep(2)
-        self.is_element_text_correct(*MainPageLocators.USER_VALID, LoginPageLocators.EMAIL_VALUE)
+       # time.sleep(2)
+        self.is_element_text_correct(*MainPageLocators.USER_VALID, PreprodEnv.EMAIL_VALUE)
 
 
 

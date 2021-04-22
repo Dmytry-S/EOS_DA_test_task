@@ -1,11 +1,11 @@
-from pages.locators import LoginPageLocators
 from pages.login_page import LoginPage
+from pages.environment import PreprodEnv
 
 
 class TestUserInApp:
 
     def test_user_login_to_app(self, browser):
-        link = LoginPageLocators.URL
+        link = PreprodEnv.URL
         page = LoginPage(browser, link)
         page.open_url()
         page.go_to_login_page()
