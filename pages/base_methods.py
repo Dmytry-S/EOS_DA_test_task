@@ -13,17 +13,19 @@ class BaseWebDriver:
     def open_url(self):
         self.browser.get(self.url)
 
-    def find_and_click_button(self, locator_name, locator_value):
-        button = self.browser.find_element(locator_name, locator_value)
+    def find_and_click_button(self, locator_name, locator_value, timeout=10):
+        button = WebDriverWait(self.browser, timeout, 2, TimeoutException). \
+            until(EC.element_to_be_clickable((locator_name, locator_value)))
         button.click()
 
-    def find_and_send_key(self, locator_name, locator_value, text):
-        field = self.browser.find_element(locator_name, locator_value)
+    def find_and_send_key(self, locator_name, locator_value, text, timeout=10):
+        field = WebDriverWait(self.browser, timeout, 2, TimeoutException). \
+            until(EC.presence_of_element_located((locator_name, locator_value)))
         field.clear()
         field.send_keys(text)
 
-    def is_element_present(self, locator_name, locator_value, timeout=15):
-        WebDriverWait(self.browser, timeout, 3, TimeoutException). \
+    def is_element_present(self, locator_name, locator_value, timeout=10):
+        WebDriverWait(self.browser, timeout, 2, TimeoutException). \
             until(EC.presence_of_element_located((locator_name, locator_value)))
 
     def is_element_text_correct(self, locator_name, locator_value, valid_element_text):
