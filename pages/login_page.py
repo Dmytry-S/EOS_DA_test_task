@@ -1,4 +1,3 @@
-import time
 from .base_methods import BaseWebDriver
 from .locators import LoginPageLocators, MainPageLocators
 from .environment import PreprodEnv
@@ -32,7 +31,6 @@ class LoginPage(BaseWebDriver):
     def is_logged_user_correct(self):
         # To make sure that correct user is logged in, compare user's email to email entered into login form
         self.find_and_click_button(*MainPageLocators.MENU_ICON)
-       # time.sleep(2)
         self.is_element_text_correct(*MainPageLocators.USER_VALID, PreprodEnv.EMAIL_VALUE)
 
 
