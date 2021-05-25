@@ -9,7 +9,7 @@ class LoginPage(BaseWebDriver):
         self.find_and_click_button(*LoginPageLocators.LOGIN_PAGE)
 
     def should_be_login_page(self):
-        # Check if there is a login form on the page available
+        # Check if there is a login form frame on the page available
         self.should_be_login_form()
 
     def should_be_login_form(self):
