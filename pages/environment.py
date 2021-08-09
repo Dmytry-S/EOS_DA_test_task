@@ -1,4 +1,4 @@
 class PreprodEnv:
-    URL = "https://preprod.eos.com/crop-monitoring/login/"
+    URL = "https://cm-preprod.eos.com/login/"
     EMAIL_VALUE = "dmsvtest@gmail.com"
     PASSWORD_VALUE = "@2663"
