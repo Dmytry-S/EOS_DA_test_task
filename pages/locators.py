@@ -11,6 +11,6 @@ class LoginPageLocators:
 
 class MainPageLocators:
     BUTTON_UPGRADE = (By.TAG_NAME, "[data-id='upgrade-plan-btn']")
-    MENU_ICON = (By.CSS_SELECTOR, ".icon-sb.account-sb.mat-tooltip-trigger")
+    MENU_ICON = (By.CSS_SELECTOR, ".mat-tooltip-trigger.account-sb")
     USER_VALID = (By.CSS_SELECTOR, ".cdk-overlay-container .email")
 
